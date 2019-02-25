@@ -23,6 +23,7 @@ export default {
     // 基于准备好的dom，初始化echarts实例
       let myChart = this.$echarts.init(document.getElementById('myChart'))//获取容器元素
       let options = {
+        color:['#00CDFE','#3DDD7D','#DEB545','#FD6001'], //设置legend中data对应的颜色
         legend: {//图例
           data: ['总数量','正常运行数'],//与series的name对应,右上角显示的名称
           right: '10%',//图例的位置，可以用像素，可以用百分比，也可以用center，right等
@@ -102,7 +103,13 @@ export default {
             barGap:0.5, //条之间的距离
             itemStyle: {
               normal: {
-                color: '#c58d4b',//设置柱子颜色
+                color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1,[  //颜色渐变
+                  {offset: 0, color: 'rgba(197,140,74,1)'},
+                  {offset: 1, color: 'rgba(193,167,86,1)'}
+                ]),
+                // color: '#c58d4b',//设置柱子颜色
+                // borderWidth: 6, //给柱子加边框
+                // borderColor: '#59519f',
                 label: {
                   show: false,//柱子上显示值
                   position: 'top',//值在柱子上方显示
