@@ -4,6 +4,8 @@
     <div id="myChart" :style="{width: '390px', height: '250px'}"></div>
     <input type="button" @click="changeVue('echarts2')" value="按钮echarts2">
     <input type="button" @click="changeVue('echarts3')" value="按钮echarts3">
+    <input type="button" @click="changeVue('echarts4')" value="按钮echarts4">
+    <input type="button" @click="changeVue('canvas1')" value="canvas1">
   </div>
 </template>
 
@@ -61,6 +63,7 @@ export default {
           splitLine: {
             show: false//去掉分割线
           },
+          axisLabel:{interval: 0} //x轴上的文字显示完全
         },
         grid:{
           x:62, //坐标轴左边与边框的距离

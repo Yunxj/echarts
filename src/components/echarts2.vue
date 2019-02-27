@@ -20,8 +20,14 @@ export default {
   methods: {
     initChart() {
       let myChart = this.$echarts.init(document.getElementById('myChart2'))//获取容器元素
-
+      // var img = new Image(); //新建对象
+      // img.src = '../assets/img/yuanqun.png'
       let option = {
+        // backgroundColor: {
+        //   type: "pattern",
+        //   repeat: "repeat",
+        //   image: img // 赋值
+        // },
         tooltip: {
             trigger: 'item',
             formatter: "{a} <br/>{b}: {c} ({d}%)"
