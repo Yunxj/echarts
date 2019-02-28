@@ -16,7 +16,7 @@ export default {
             lineWidth1:10,
             lineWidth2:20,
             colorSmall:'#1F8FFF',
-            process:10
+            process:20
         }   
     },
     methods:{
@@ -30,7 +30,7 @@ export default {
             //前两个代表起始x，y坐标，后两个代表起点颜色和终点颜色的坐标
             grd.addColorStop(0,"blue")
             grd.addColorStop(1,"green")
-            ctx.translate(r/8, r/8)
+            ctx.translate(r/10, r/10)
             ctx.save();
             ctx.lineWidth = this.lineWidth2;
             ctx.strokeStyle = grd;
@@ -38,7 +38,7 @@ export default {
             let rad = 2 * Math.PI / 100 * this.process;
             let interval = Math.PI / 2;
             ctx.beginPath();
-            ctx.arc(0, 0, r - 10, -interval, rad - interval, false);
+            ctx.arc(-25, -25, r-10, -interval, rad - interval, false);
             ctx.stroke();
             ctx.restore();
         }
@@ -49,15 +49,12 @@ export default {
 
     },
     mounted(){ 
-        setTimeout( () => {
-    
-    
         let canvas = this.$refs.canvasD
         let ctx = canvas.getContext('2d')
         let width = canvas.width
         let height = canvas.height
         let r = width / 2
-        ctx.translate(r, r)
+        ctx.translate(r, r) //中心位置
         ctx.save();
         ctx.lineWidth = this.lineWidth1;
         ctx.strokeStyle = this.colorSmall;
@@ -72,7 +69,6 @@ export default {
         ctx.stroke();
         ctx.restore();
         this.drawCircle()
-    },1000);
     },
     beforeDestroy(){
     }
