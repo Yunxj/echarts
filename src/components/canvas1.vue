@@ -1,9 +1,10 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <canvas id="myCanvas1" data-percent="60" ref="canvasD"> 
-    您的浏览器不支持canvas标签。 
-    </canvas>
+    <div ref = 'canvas' class="canvasfor">   
+        <canvas id="canvas" width="500" height="500" ref="canvasD"></canvas>
+
+    </div>
   </div>
 </template>
 <script>
@@ -11,11 +12,36 @@ export default {
     name:'canvas1',
     data(){
         return{
-
+            msg: 'canvas的圆环',
+            lineWidth1:10,
+            lineWidth2:20,
+            colorSmall:'#1F8FFF',
+            process:10
         }   
     },
     methods:{
-
+        drawCircle() {
+            let canvas = this.$refs.canvasD
+            let ctx = canvas.getContext('2d')
+            let width = canvas.width
+            let height = canvas.height
+            let r = width / 2
+            let grd=ctx.createLinearGradient(0,500,500,0)   // 渐变
+            //前两个代表起始x，y坐标，后两个代表起点颜色和终点颜色的坐标
+            grd.addColorStop(0,"blue")
+            grd.addColorStop(1,"green")
+            ctx.translate(r/8, r/8)
+            ctx.save();
+            ctx.lineWidth = this.lineWidth2;
+            ctx.strokeStyle = grd;
+            ctx.lineCap = 'round';
+            let rad = 2 * Math.PI / 100 * this.process;
+            let interval = Math.PI / 2;
+            ctx.beginPath();
+            ctx.arc(0, 0, r - 10, -interval, rad - interval, false);
+            ctx.stroke();
+            ctx.restore();
+        }
     },
     created(){
     },
@@ -23,63 +49,42 @@ export default {
 
     },
     mounted(){ 
-
+        setTimeout( () => {
+    
+    
+        let canvas = this.$refs.canvasD
+        let ctx = canvas.getContext('2d')
+        let width = canvas.width
+        let height = canvas.height
+        let r = width / 2
+        ctx.translate(r, r)
+        ctx.save();
+        ctx.lineWidth = this.lineWidth1;
+        ctx.strokeStyle = this.colorSmall;
+        ctx.beginPath();
+        ctx.arc(0, 0, r - 10, 0, 2 * Math.PI, false);
+        //文字
+        ctx.fillStyle = '#000';
+        ctx.font = '30px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(this.process + '%', 0, 0);
+        ctx.stroke();
+        ctx.restore();
+        this.drawCircle()
+    },1000);
     },
     beforeDestroy(){
-
     }
 }
-var pper=0; 
- var pper_interal;  
- var dushu=document.getElementById('dushu');
- 
- var aaa=drawCanvanPercent('myCanvas1','rem',2,'#93BF55',0.2,'#fff', dushu);  
- var canvasMianJi = this.$refs.canvasD
- function drawCanvanPercent(ele_id,dw,cir_r,cir_color,line_w,fill_color,dushu_ele){ 
-     if(dw=="rem"){ 
-         cir_r=cir_r*(canvasMianJi.width/5); 
-         line_w=line_w*(window.screen.width/5); 
-     } 
-     var canvas = document.getElementById(ele_id); 
-     var circle = { 
-         r : cir_r/2,      //圆的半径 
-         per : canvas.getAttribute('data-percent'),      //百分比分子 
-         color : cir_color,      //圆环的颜色 
-         lineWidth : line_w      //圆环的宽度 
-     }; 
-     canvas.width=canvas.height=circle.r*2; 
-     canvas.style.borderRadius="50%"; 
-     if(canvas.getContext){ 
-         var ctx2 = canvas.getContext("2d"); 
-         ctx2.fillStyle = fill_color; 
-         ctx2.arc(circle.r, circle.r, circle.r-circle.lineWidth/2, 0, Math.PI*2, false); 
-         ctx2.fill(); 
-         var ctx = canvas.getContext("2d"); 
-         pper_interal= setInterval(function () {  //间隔10ms调用一次drawmove
-             drawMove(ctx,circle,dushu_ele); 
-         }, 10);
- 
-         var ctx3 = canvas.getContext("2d");  //绘制底色为灰色的圆圈
-         ctx3.beginPath(); 
-     ctx3.strokeStyle = "#ddd"; 
-     ctx3.lineWidth=circle.lineWidth; 
-     ctx3.arc(circle.r, circle.r, circle.r, Math.PI*0, Math.PI*2, false); 
-     ctx3.stroke();
-     } 
- } 
- 
- function drawMove(ctx,circle,dushu_ele){   //根据data-percent的值，实现递进效果
-     if(pper>=circle.per){ 
-         pper=circle.per; 
-         clearTimeout(pper_interal); 
-     }else{ 
-         pper++; 
-     } 
-     dushu_ele.innerText=pper+'%'; 
-     ctx.beginPath(); 
-     ctx.strokeStyle = circle.color; 
-     ctx.lineWidth=circle.lineWidth; 
-     ctx.arc(circle.r, circle.r, circle.r, 0, Math.PI*(pper/100)*360/180, false); 
-     ctx.stroke(); 
- }
+
 </script>
+<style>
+    canvas {
+        margin: 0 auto;
+    }
+    .canvasfor {
+        width: 500px;
+        height: 500px;
+    }
+</style>
