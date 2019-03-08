@@ -1,0 +1,301 @@
+/*直接加类的浮动闭合*/
+.clear:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clear {
+  display: inline-block;
+}
+
+* html .clear {
+  height: 1%;
+}
+
+.clear {
+  display: block;
+  clear: both;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.vc {
+  align-items: center;
+}
+
+.cenmid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.topRight {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.tr {
+  text-align: right;
+}
+
+.tl {
+  text-align: left;
+}
+
+.tc {
+  text-align: center;
+}
+
+.left0 {
+  left: 0;
+}
+
+.right0 {
+  right: 0
+}
+
+.clear {
+  display: block;
+  clear: both;
+  content: '';
+}
+
+.color1 {
+  font-size: 20px;
+  color: #00EFFE;
+}
+
+.f44 {
+  font-size: 44px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  scrollbar-track-color: #fff;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.h30 {
+  height: 30%;
+}
+.h40{
+  height:40%;
+  }
+.h50 {
+  height: 50%;
+}
+
+.h53 {
+  height: 53%;
+}
+
+.h55 {
+  height: 55%;
+}
+
+.h60 {
+  height: 60%;
+}
+
+.h74 {
+  height: 74%;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+.mr20 {
+  margin-right: 20px;
+}
+.ml10 {
+  margin-left: 10px;
+}
+
+.ml20 {
+  margin-left: 20px;
+}
+
+.mlb16 {
+  margin-left: 16%;
+}
+
+.mlb24 {
+  margin-left: 24%;
+}
+
+.mrb10 {
+  margin-right: 10%;
+}
+
+.mrb24 {
+  margin-right: 24%;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mb7 {
+  bottom: -7px;
+}
+
+.pb10 {
+  padding-bottom: 10px;
+}
+
+.pt10{
+  padding-top: 10px;
+}
+.pl20 {
+  padding-left: 20px;
+}
+.pl80 {
+  padding-left: 80px;
+}
+.pd20 {
+  padding: 4% 14%;
+}
+.pr {
+  position: relative;
+}
+.pa{
+  position: absolute;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flexa {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flexvb {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flexv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.flexvce {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.flexc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flexcc { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ellip{
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap;
+}
+.flexve {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.f120 {
+  font-size: 10px;
+}
+.f12 {
+  font-size: 12px;
+}
+.f14 {
+  font-size: 14px;
+}
+.f16{
+  font-size: 16px;
+}
+.f20 {
+  font-size: 20px;
+}
+.f30 {
+  font-size: 30px;
+}
+.f44{
+  font-size: 44px;
+  }
+.co1 {
+  color: #f7b43e;
+}
+
+.co2 {
+  color: #00cdfe;
+}
+
+.co3 {
+  color: #c7e3ff;
+}
+
+.co4 {
+  color: #ffffff;
+}
+.co5 {
+  color: #2beb9b;
+}
+.co6 {
+  color: #f49d41;
+}
+.co7{
+  color:#2dd775;
+}
+.bg1 {
+  background: rgba(10, 123, 199, 0.2)
+}
+.mouse {
+    cursor: pointer;
+}

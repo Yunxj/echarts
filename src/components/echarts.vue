@@ -5,7 +5,8 @@
     <input type="button" @click="changeVue('echarts2')" value="按钮echarts2">
     <input type="button" @click="changeVue('echarts3')" value="按钮echarts3">
     <input type="button" @click="changeVue('echarts4')" value="按钮echarts4">
-    <input type="button" @click="changeVue('canvas1')" value="canvas1">
+    <input type="button" @click="changeVue('canvas1')" value="canvas1圆环">
+    <input type="button" @click="changeVue('hchartspie')" value="Hcharts的饼状图练习">
   </div>
 </template>
 
@@ -25,6 +26,19 @@ export default {
     // 基于准备好的dom，初始化echarts实例
       let myChart = this.$echarts.init(document.getElementById('myChart'))//获取容器元素
       let options = {
+        title: {
+          text: '单位(条)',
+          right:'right',
+          top:2,
+          right:60,
+          textStyle:{
+              color:'#d6ebff',
+              fontStyle:'normal',
+              fontWeight:'normal',
+              fontFamily:'微软雅黑',
+              fontSize:14
+          }
+        },
         color:['#00CDFE','#3DDD7D','#DEB545','#FD6001'], //设置legend中data对应的颜色
         legend: {//图例
           data: ['总数量','正常运行数'],//与series的name对应,右上角显示的名称
@@ -113,6 +127,24 @@ export default {
                 // color: '#c58d4b',//设置柱子颜色
                 // borderWidth: 6, //给柱子加边框
                 // borderColor: '#59519f',
+                // color:(params)=>{ //多个柱子不同颜色渐变
+                //   var colorList = [
+                //         ['#F49D41','#FE4705'], //右边的是下面颜色
+                //         ['#C3A959','#C58441'],
+                //         ['#03C8DD','#0A69AC'],
+                //         ['#2CC19B','#02A972'],
+                //         ['#2E8ADC','#3051BE'],
+                //         ['#9973DD','#0F44B1']
+                //   ];
+                //   var index=params.dataIndex;
+                //   if(params.dataIndex >= colorList.length){
+                //       index=params.dataIndex-colorList.length;
+                //   }
+                //   return new this.$echarts.graphic.LinearGradient(0, 0, 0, 1,[
+                //           {offset: 0, color: colorList[index][0]},
+                //           {offset: 1, color: colorList[index][1]}
+                //       ])
+                // },
                 label: {
                   show: false,//柱子上显示值
                   position: 'top',//值在柱子上方显示

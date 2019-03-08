@@ -58,6 +58,8 @@ export default {
           splitLine: {
             show: false//去掉分割线
           },
+          axisLabel:{interval: 0} //x轴上的文字显示完全
+
         },
         grid:{
           x:62, //坐标轴左边与边框的距离

@@ -4,7 +4,6 @@
     <div id="myChart4" :style="{width: '430px', height: '180px'}"></div>    
      <div class="visitor-img">
      <!-- <div  class='canvas '><circleDraw  color = '#00cdfe' :value = 'visited.registed' :totalPoint = 'visited.total'></circleDraw></div> -->
-
         <div  class="canvas">
             <circleDraw  
             colordeno="#f3af4b"
@@ -49,7 +48,6 @@ export default {
   methods: {
     initChart() {
       let myChart = this.$echarts.init(document.getElementById('myChart4'))//获取容器元素
-
       let option = {
         // tooltip: {
         //     trigger: 'item',

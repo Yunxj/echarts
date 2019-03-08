@@ -1,0 +1,316 @@
+//平移动画
+@keyframes leftMove {
+    from {
+       transform:  translateX(0);
+    }
+    to {
+       transform:  translateX(-120%);
+    }
+}
+@keyframes rightMove {
+    from {
+       transform:  translateX(0);
+    }
+    to {
+       transform:  translateX(120%);
+    }
+}
+@keyframes bottomMove {
+    to {
+       transform:translateX(-50%)  translateY(150%);
+    }
+}
+@keyframes bottomIn {
+    from {
+        transform: translatey(0);
+     }
+    to {
+       transform:translatey(150%);
+    }
+}
+@keyframes bottomLeave {
+    from {
+        transform: translateY(150%);
+     }
+    to {
+       transform:translateY(0);
+    }
+}
+@keyframes leftBack {
+    from {
+        transform:  translateX(-120%);
+    }
+    to {
+       transform:  translateX(0);
+    }
+}
+
+@keyframes rightBack {
+    from {
+        transform:  translateX(120%);
+    }
+    to {
+       transform:  translateX(0);
+    }
+}
+@keyframes bottomBack {
+    from {
+        transform:translateX(-50%)  translateY(150%);
+    }
+    to {
+       transform:translateX(-50%)  translateY(0);
+    }
+}
+@keyframes topBack {
+    from {
+        transform:  translate(-50%,-120%);
+    }
+    to {
+       transform:  translate(-50%,0);
+    }
+}
+@keyframes topLeave {
+    from {
+        transform:  translate(-50%,0);
+    }
+    to {
+       transform:  translate(-50%,-120%);
+    }
+}
+@keyframes fadeOut {  //淡出
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes fadeIn {  //淡入
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes AthleteToSmall {
+    from{
+        transform: translate(0,0) scale(1,1);
+    }
+    to{
+        transform: translate(80px,20px) scale(0.64,0.64);
+    }
+}
+@keyframes AthleteToBig {
+    from{
+         transform: translate(80px,20px) scale(0.64,0.64);
+    }
+    to{
+        transform: translate(0,0) scale(1,1);
+    }
+}
+@keyframes workToBig {
+    from{
+       transform: translate(0,0) scale(1,1);
+    }
+    to{
+         transform: translate(-80px,-15px) scale(1.57,1.57);
+    }
+}
+@keyframes workToSmall {
+    from{
+        transform: translate(-80px,-15px) scale(1.57,1.57);
+    }
+    to{
+          transform: translate(0,0) scale(1,1);
+    }
+}
+.pillarNor{
+    .bigCylider{animation: AthleteToBig @animateTime ease 1 forwards;
+    }
+    .smallCylider{animation: workToSmall @animateTime ease 1 forwards;
+    }
+    .athleteTree{
+        animation:fadeIn  @animateTime ease  1 forwards;
+    }
+    .workTree{
+        animation:fadeOut  @animateTime ease  1 forwards;
+    }
+}
+.pillarAct {
+    .bigCylider{animation:AthleteToSmall @animateTime ease 1 forwards;
+    }
+
+    .smallCylider{animation: workToBig @animateTime ease 1 forwards;
+    }
+    .athleteTree{
+        animation:fadeOut  @animateTime ease 1 forwards;
+    }
+    .workTree{
+        animation:fadeIn  @animateTime ease  1 forwards;
+    }
+}
+.leave-move {  //平移离开
+    .sceneB-title {
+        animation: topLeave @animateTime/2 linear 1  forwards;
+    }
+    .sceneBleft {
+        animation: leftMove @animateTime/2 linear 1  forwards;
+    }
+    .sceneBright {
+        animation: rightMove @animateTime/2 linear 1  forwards;
+    }
+    .sceneB-bottom-box {
+        animation: bottomMove @animateTime/2 linear 1  forwards;
+    }
+    .bg,.sceneB-center{
+        animation: fadeOut @animateTime/2 linear 1  forwards;
+    }
+     // 新增今日赛事、完整赛事的动画效果
+    .todayMatch-left {
+        animation: leftMove @animateTime/2 linear 1  forwards;
+    }
+    .todayMatch-right {
+        animation: rightMove @animateTime/2 linear 1  forwards;
+    }
+    .todayMatch-container{
+        animation: fadeOut @animateTime/2 linear 1  forwards;
+    }
+    .left-match {
+        animation: leftMove @animateTime/2 linear 1  forwards;
+    }
+    .right-match {
+        animation: rightMove @animateTime/2 linear 1  forwards;
+    }
+    &.all-match{
+        animation: fadeOut @animateTime/2 linear 1  forwards;
+    }
+}
+.back-move {  //平移回来
+    .sceneB-title {
+        animation: topBack @animateTime/2 linear 1  forwards;
+    }
+    .sceneBleft {
+        animation: leftBack @animateTime/2 linear 1  forwards;
+    }
+    .sceneBright {
+        animation: rightBack @animateTime/2 linear 1  forwards;
+    }
+    .sceneB-bottom-box {
+        animation: bottomBack @animateTime/2 linear 1  forwards;
+    }
+    .bg,.sceneB-center {
+        animation: fadeIn @animateTime/2 linear 1  forwards;
+    }
+    // 新增今日赛事、完整赛事的动画效果
+    .todayMatch-left {
+        animation: leftBack @animateTime/2 linear 1  forwards;
+    }
+    .todayMatch-right {
+        animation: rightBack @animateTime/2 linear 1  forwards;
+    }
+    .todayMatch-container{
+        animation: fadeIn @animateTime/2 linear 1  forwards;
+    }
+    .left-match {
+        animation: leftBack @animateTime/2 linear 1  forwards;
+    }
+    .right-match {
+        animation: rightBack @animateTime/2 linear 1  forwards;
+    }
+    &.all-match{
+        animation: fadeIn @animateTime/2 linear 1  forwards;
+    }
+}
+//翻转动画
+
+@keyframes bottomRotate {
+    0% {
+        transform:translateX(0);
+    }
+    50% {
+        transform:rotateX(85deg);
+    }
+    100% {
+        transform:rotateX(85deg) translateY(-1000px);
+    }
+}
+@keyframes bottomRotateBack {
+    0% {
+        transform:rotateX(85deg) translateY(-1000px);
+    }
+    50% {
+        transform:rotateX(85deg);
+    }
+    100% {
+        transform:translateX(0);
+    }
+}
+.leave-rotate {
+    animation: bottomRotate 0.7*@animateTime linear  0.3*@animateTime 1  forwards;
+    .left {
+        animation: leftMove 0.3*@animateTime linear  1  forwards;
+    }
+    .right {
+        animation: rightMove 0.3*@animateTime linear  1  forwards;
+    }
+}
+.back-rotate {
+    animation:bottomRotateBack 0.7*@animateTime linear  1  forwards;
+    .left {
+        transform:  translateX(-120%);
+        animation: leftBack 0.3*@animateTime linear 1 0.7*@animateTime forwards;
+    }
+    .right {
+        transform:  translateX(120%);
+        animation: rightBack 0.3*@animateTime linear 1 0.7*@animateTime forwards;
+    }
+}
+//快速移动动画
+@keyframes leaveFar {
+    from {
+        transform:translateX(0);
+        opacity: 1;
+    }
+    to{
+        transform:translateZ(-2500px);
+        opacity: 0;
+
+    }
+}
+@keyframes backFar {
+    from{
+        transform:translateZ(-2500px);
+        opacity: 0;
+    }
+    to {
+        transform:translateX(0);
+        opacity: 1;
+    }
+
+}
+
+.leave-far{
+    animation: leaveFar @animateTime linear 1 forwards;
+    .scenec-left {
+        animation: leftMove @animateTime linear  1  forwards;
+    }
+    .scenec-right {
+        animation: rightMove @animateTime linear  1  forwards;
+    }
+    .scenec-bottom {
+        animation: bottomIn  @animateTime linear 1  forwards;
+    }
+}
+.back-far{
+    animation: backFar 0.7*@animateTime linear 1 forwards;
+    .scenec-left{
+        animation: leftBack 0.3*@animateTime linear 1 0.7*@animateTime forwards;
+    }
+    .scenec-right {
+        animation: rightBack 0.3*@animateTime linear 1 0.7*@animateTime forwards;
+    }
+    .scenec-bottom {
+        animation: bottomLeave 0.3*@animateTime linear 1 0.7*@animateTime  forwards;
+    }
+}

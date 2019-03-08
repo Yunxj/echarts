@@ -5,6 +5,7 @@ import echarts2 from '@/components/echarts2'
 import echarts3 from '@/components/echarts3'
 import echarts4 from '@/components/echarts4'
 import canvas1 from '@/components/canvas1'
+import hchartspie from '@/components/hchartspie'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/canvas1',
       name: 'canvas1',
       component: canvas1
+    },
+    {
+      path: '/hchartspie',
+      name: 'hchartspie',
+      component: hchartspie
     }
   ]
 })
