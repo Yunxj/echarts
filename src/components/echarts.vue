@@ -7,6 +7,8 @@
     <input type="button" @click="changeVue('echarts4')" value="按钮echarts4">
     <input type="button" @click="changeVue('canvas1')" value="canvas1圆环">
     <input type="button" @click="changeVue('hchartspie')" value="Hcharts的饼状图练习">
+    <input type="button" @click="changeVue('echarts5')" value="南通的饼状图练习">
+    <input type="button" @click="changeVue('echarts6')" value="南通的仪表练习">
   </div>
 </template>
 

@@ -4,6 +4,8 @@ import echarts from '@/components/echarts'
 import echarts2 from '@/components/echarts2'
 import echarts3 from '@/components/echarts3'
 import echarts4 from '@/components/echarts4'
+import echarts5 from '@/components/echarts5'
+import echarts6 from '@/components/echarts6'
 import canvas1 from '@/components/canvas1'
 import hchartspie from '@/components/hchartspie'
 
@@ -30,6 +32,16 @@ export default new Router({
       path: '/echarts4',
       name: 'echarts4',
       component: echarts4
+    },
+    {
+      path: '/echarts5',
+      name: 'echarts5',
+      component: echarts5
+    },
+    {
+      path: '/echarts6',
+      name: 'echarts6',
+      component: echarts6
     },
     {
       path: '/canvas1',
