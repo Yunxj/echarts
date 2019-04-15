@@ -43,4 +43,8 @@ export default{
 		let numx = maxfloat*(Math.pow(10,max.toString().length-1))
 		return numx
 	},
+	numFormat(num) { //千位符
+		var reg = /\d{1,3}(?=(\d{3})+$)/g;
+		return (num + '').replace(reg, '$&,');
+	},
 }

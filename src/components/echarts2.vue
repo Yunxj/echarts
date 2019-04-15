@@ -1,21 +1,26 @@
 <template>
   <div class="echarts2">
     <h1>{{ msg }}</h1>
-    <div id="myChart2" :style="{width: '430px', height: '180px'}"></div>    
+    <div id="myChart2" :style="{width: '430px', height: '180px'}"></div>   
+    <animated :valueChange="paramsNumber"></animated>
   </div>
 </template>
-
 <script>
+import animated from '@/components/common/animated'
+import circleDraw from '@/components/circleDraw'
 export default {
   name: "echarts2",
   data() {
     return {
       chart: null,
-      msg:'第一个环状图'
+      msg:'第一个环状图',
+      paramsNumber: 20
     };
   },
+  components: {animated},
   mounted() {
     this.initChart()
+    this.changeNum(true)
   },
   methods: {
     initChart() {
@@ -123,7 +128,25 @@ export default {
       } 
       myChart.setOption(option)//设置option 
     },
-  }
+    changeNum(a) {
+        console.log(3333)
+      if(a) {
+        setInterval(()=>{
+          this.paramsNumber =this.paramsNumber + 200
+
+        },5000)
+        console.log(this.paramsNumber)
+      }
+    }
+  },
+  // computed: {
+  //   paramsNumber () {
+  //         debugger;
+
+  //     // return this.firstNumber + this.secondNumber
+  //     return this.paramsNumber
+  //   }
+  // }
 }
 </script>
 
@@ -131,6 +154,7 @@ export default {
     h1 {
         text-align: center;
         color: pink;
+        font-size: 20px;
     }
     div {
       // margin: 0 auto;

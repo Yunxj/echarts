@@ -2,6 +2,12 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <div id="myChart3" :style="{width: '390px', height: '250px'}"></div>
+    <div id="box">
+      <ul>
+        <li v-for="(item,index) in items" :key="index" v-text="item" @click="clk(index)" :class="index == 0 ? cur :'tab_li'"></li>
+      </ul>
+      <div v-for="(item,index) in arry" :key="index" v-show="index === flg ? true : false"  v-text="item.txt" class="count"></div>
+    </div>
   </div>
 </template>
 
@@ -13,11 +19,21 @@ export default {
       msg: 'echarts的折线图练习',
       dataPeopleX:[0, 2, 4, 6, 8, 10,12,14,16,18,20,22,24],
       dataPeopleY:[5192,6162,7162,5248,6140,11540,12140,14140,13740,12140,11140,10140,9420],
+       //初始化显示第1个div里面的内容
+        flg:0,
+        cur:'li_current tab_li',
+        //items是从后台获取到的li内容
+        items:["标签1","标签2","标签3"],
+        // arry是从后台获取到的div中要显示的内容
+        arry:[
+            {"txt":"这是第 1 个div标签"},
+            {"txt":"这是第 2 个div标签"},
+            {"txt":"这是第 3 个div标签"}
+        ]
     }
   },
   methods:{
-    drawLine(){
-    // 基于准备好的dom，初始化echarts实例
+    drawLine(){// 基于准备好的dom，初始化echarts实例
       let myChart = this.$echarts.init(document.getElementById('myChart3'))//获取容器元素
       let options = {
         legend: {//图例
@@ -122,7 +138,18 @@ export default {
     },
     changeVue(path) {
       this.$router.push({path})
+    },
+    clk(idx){
+        if(idx !== 0){
+            this.cur = 'tab_li';
+        }else{
+            // 点击的第几个li显示第几个div的内容,第几个li高亮显示
+            this.cur = 'li_current tab_li';
+        }
+        this.flg = idx;
+
     }
+
 
   },
   mounted() {
