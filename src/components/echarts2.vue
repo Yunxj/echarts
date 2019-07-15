@@ -3,10 +3,12 @@
     <h1>{{ msg }}</h1>
     <div id="myChart2" :style="{width: '430px', height: '180px'}"></div>   
     <animated :valueChange="paramsNumber"></animated>
+    <waterDraw color="#f8a935" bg="waterbg1" :total="waterData.total" :finished="waterData.finished"></waterDraw>
   </div>
 </template>
 <script>
 import animated from '@/components/common/animated'
+import waterDraw from '@/components/common/waterDraw'
 import circleDraw from '@/components/circleDraw'
 export default {
   name: "echarts2",
@@ -14,10 +16,14 @@ export default {
     return {
       chart: null,
       msg:'第一个环状图',
-      paramsNumber: 20
+      paramsNumber: 20,
+      waterData:{
+        total:100,
+        finished:20
+      }
     };
   },
-  components: {animated},
+  components: {animated,waterDraw},
   mounted() {
     this.initChart()
     this.changeNum(true)
@@ -132,6 +138,9 @@ export default {
         console.log(3333)
       if(a) {
         setInterval(()=>{
+
+          this.waterData.total = this.waterData.total + 5
+          this.waterData.finished = this.waterData.finished + 10
           this.paramsNumber =this.paramsNumber + 200
 
         },5000)
