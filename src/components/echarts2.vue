@@ -9,7 +9,7 @@
 <script>
 import animated from '@/components/common/animated'
 import waterDraw from '@/components/common/waterDraw'
-import circleDraw from '@/components/circleDraw'
+import circleDraw from '@/components/circleDraw' 
 export default {
   name: "echarts2",
   data() {

@@ -160,7 +160,7 @@ export default {
     }
     // 圆起始点 
     let cStartPoint = arcStack.shift()
-    ctx.moveTo(cStartPoint[0], cStartPoint[1])
+    ctx.moveTo(cStartPoint[0], cStartPoint[1])  
   }
 }
 </script>
